@@ -2,7 +2,7 @@ from dataset.data_proc import *
 
 
 import torch.nn as nn
-from utils.model_profiling import *
+from utils.model_profiling_base import *
 # from utils.model_profiling_base import *
 from train_test.train_test_proc import *
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":  # 这个工程里的model_profiling未调用gpu
     # test_loader = Data.DataLoader(dataset=har_test_tensor, batch_size=1, shuffle=True, num_workers=5, )
 
 
-    model = torch.load('./model_save/UCI/no_awm/net0.965412004069176_199.pth', map_location='cpu')
+    model = torch.load('./model_save/UCI/net0.965412004069176_199.pth', map_location='cpu')
     model = model.module.to(torch.device("cpu"))
 
     # loss_func = torch.nn.CrossEntropyLoss()
@@ -32,6 +32,12 @@ if __name__ == "__main__":  # 这个工程里的model_profiling未调用gpu
     profiling(model, 'cpu', [128, 9],  # UCI
               1, [1],
               True)
+
+   
+
+
+
+
 
    
 
