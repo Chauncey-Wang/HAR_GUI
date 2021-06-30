@@ -21,12 +21,9 @@ if __name__ == "__main__":  # 这个工程里的model_profiling未调用gpu
 
 
     model = torch.load('./model_save/UCI/no_awm/net0.965412004069176_199.pth', map_location='cpu')
-    
-
     model = model.module.to(torch.device("cpu"))
 
-    loss_func = torch.nn.CrossEntropyLoss()
-
+    # loss_func = torch.nn.CrossEntropyLoss()
     # model = model.cuda()
     # model = nn.DataParallel(model)
     # loss_func = loss_func.cuda()
